@@ -17,6 +17,7 @@ OP_DUP OP_HASH160 <Cafe Public Key Hash> OP_EQUALVERIFY OP_CHECKSIG
 
 
 ## Multisignature
+Multisignature scripts set a condition where N public keys are recorded in the script and at least M of those must provide signatures to unlock the funds
 ### locking script
 ```
 M <Public Key 1> <Public Key 2> ... <Public Key N> N CHECKMULTISIG
@@ -25,3 +26,5 @@ M <Public Key 1> <Public Key 2> ... <Public Key N> N CHECKMULTISIG
 ```
 0 <Signature B> <Signature C>
 ```
+## Pay-to-Script-Hash (P2SH)
+
