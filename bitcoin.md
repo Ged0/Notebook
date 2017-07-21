@@ -89,8 +89,16 @@ The nSequence value is specified in either blocks or seconds, but in a slightly 
 ### Relative Timelocks with CSV 
 That opcode is CHECKSEQUENCEVERIFY, commonly referred to as CSV for short.
 
+### Timelock Defense Against Fee Sniping
+Fee-sniping is a theoretical attack scenario, where miners attempting to rewrite past blocks "snipe" higher-fee transactions from future blocks to maximize their profitability.
+
+To prevent "fee sniping," when Bitcoin Core creates transactions, it uses nLocktime to limit them to the "next block," by default. In our scenario, Bitcoin Core would set nLocktime to 100,001 on any transaction it created. Under normal circumstances, this nLocktime has no effect—the transactions could only be included in block #100,001 anyway; it’s the next block.
+
+To achieve this, Bitcoin Core sets the nLocktime on all new transactions to <current block # + 1> and sets the nSequence on all the inputs to 0xFFFFFFFE to enable nLocktime.
 
 
+## Scripts with Flow Control (Conditional Clauses)
+条件语句判断, 让支付有了多种方式.
 
 
 
